@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau d'articles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button onclick="topFunction()" id="scrollToTopBtn" title="Remonter en haut de la page">
+        <span class="arrow-up"></span>  
+    </button>
+    <h2>Liste des articles</h2>
+    <input type="text" id="searchInput" placeholder="Rechercher..." aria-label="Search through articles">
+    <button id="addArticleBtn" class="excellent-button">Ajouter Article</button>
+    <table id="articlesTable">
+        <thead>
+            <tr id="tableHeader">
+                <th class="small-column">Réf</th>
+                <th class="small-column">FRS</th>
+                <th class="small-column">Article</th>
+                <th class="small-column">Prix</th>
+                <th id="promotionHeader" class="small-column">Promotion</th>
+                <th class="small-column">Stock</th>
+                <th class="large-column">Image</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Le contenu du tableau sera généré dynamiquement en JavaScript -->
+        </tbody>
+    </table>
+    <!-- Formulaire pour ajouter un nouvel article -->
+    <div id="addArticleForm" style="display:none;">
+        <form id="newArticleForm">
+            <h3>Ajouter un nouvel article</h3>
+            <label for="newRef">Réf:</label>
+            <input type="text" id="newRef" name="ref" required><br>
+            <label for="newFrs">FRS:</label>
+            <input type="text" id="newFrs" name="frs" required><br>
+            <label for="newArticle">Article:</label>
+            <input type="text" id="newArticle" name="article" required><br>
+            <label for="newPrix">Prix:</label>
+            <input type="number" id="newPrix" name="prix" required><br>
+            <label for="newPromotion">Promotion:</label>
+            <input type="number" id="newPromotion" name="promotion"><br>
+            <label for="newStock">Stock:</label>
+            <input type="number" id="newStock" name="stock" required><br>
+            <label for="newSrcImg">Image URL:</label>
+            <input type="text" id="newSrcImg" name="srcImg" required><br>
+            <button type="submit" class="excellent-button">VALIDER</button>
+            <button type="button" id="closeFormBtn" class="excellent-button">FERMER</button>
+        </form>
+    </div>
+    <!-- Formulaire pour modifier un article -->
+    <div id="editArticleForm" style="display:none;">
+        <form id="editArticleFormElement">
+            <h3>Modifier l'article</h3>
+            <label for="editRef">Réf:</label>
+            <input type="text" id="editRef" name="ref" required><br>
+            <label for="editFrs">FRS:</label>
+            <input type="text" id="editFrs" name="frs" required><br>
+            <label for="editArticle">Article:</label>
+            <input type="text" id="editArticle" name="article" required><br>
+            <label for="editPrix">Prix:</label>
+            <input type="number" id="editPrix" name="prix" required><br>
+            <label for="editPromotion">Promotion:</label>
+            <input type="number" id="editPromotion" name="promotion"><br>
+            <label for="editStock">Stock:</label>
+            <input type="number" id="editStock" name="stock" required><br>
+            <label for="editSrcImg">Image URL:</label>
+            <input type="text" id="editSrcImg" name="srcImg" required><br>
+            <button type="submit" class="excellent-button">VALIDER</button>
+            <button type="button" id="closeEditFormBtn" class="excellent-button">FERMER</button>
+        </form>
+    </div>
+    <!-- Popup pour modification/suppression -->
+    <div id="editDeletePopup" style="display:none;">
+        <div id="editDeleteContent">
+            <button id="editPopupBtn" class="excellent-button">Modifier</button>
+            <button id="deletePopupBtn" class="excellent-button">Supprimer</button>
+            <button id="closeEditDeletePopupBtn" class="excellent-button">Fermer</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

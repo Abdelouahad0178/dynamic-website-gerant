@@ -1,0 +1,11 @@
+dynamic-website
+├── config.js
+├── server.js
+├── models
+│   └── Article.js
+├── routes
+│   └── articles.js
+└── public
+    ├── index.html
+    ├── styles.css
+    └── script.js
